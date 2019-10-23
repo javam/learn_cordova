@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <!--   <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+  <!--   <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
+  <!--   <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'; connect-src http://trender.backend"> -->
+
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <title>Trender</title>
+
+  <script type="text/javascript" src="cordova.js"></script>
+  <!-- <script type="text/javascript" src="js/jquery-1.11.1.min.js" id="cordova-jquery"></script> -->
+  <!-- <script type="text/javascript" src="js/jquery-1.5.0.mobile.min.js"></script> -->
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript">
+    var id = 1;
+    var nickName, firstName, secondName, instagram, likes, bio, ratingView, ratingShow, saved, followers, country, city,
+      likes, followed;
+
+    var profileData = new Array();
+
+    $(document).ready(function () {
+
+      $.get(
+        "php/profile.php", {
+          id: id
+        },
+        function (data) {
+          data = JSON.parse(data);
+
+          nickName = data['nickname'];
+          firstName = data['firstName'];
+          secondName = data['secondName'];
+          instagram = data['instagram'];
+          country = data['country'];
+          city = data['city'];
+          followers = data['followers'];
+          likes = data['likes'];
+          ratingShow = data['rating_photographer'];
+
+          $("#nickName").val(nickName);
+          $("#firstName").val(firstName);
+          $("#secondName").val(secondName);
+          $("#instagram").val(instagram);
+          $("#country").val(country);
+          $("#city").val(city);
+
+        });
+
+      $("#sendEdit").bind("click", function () {
+
+        $.ajax({
+          url: "php/profile.php",
+          type: "POST",
+          data: {
+            action: "edit",
+            id: id,
+            nickName: $("#nickName").val(),
+            firstName: $("#firstName").val(),
+            secondName: $("#secondName").val(),
+            instagram: $("#instagram").val(),
+            country: $("#country").val(),
+            city: $("#city").val()
+          },
+          dataType: "html",
+          beforeSend: function () {},
+          // success: function(data){
+          //   alert(data);
+          // },
+          error: function () {
+            alert("error");
+          }
+        });
+      });
+
+    });
+  </script>
+</head>
+
+<body>
+
+  <div id="header">
+    <h1>Trender</h1>
+  </div>
+
+  <div id="page">
+
+    </br></br></br>
+
+
+    <center>
+      <h2 id="h2">Edit Profile
+      </h2>
+    </center>
+
+    </br></br>
+
+    <div id="description" style="width: 50%; float: left;text-align: right; margin-top: 3%;">
+      <p>trender @ </p>
+      <p>Имя</p>
+      <p>Фамилия</p>
+      <p>Instagram.com/</p>
+      <p>Страна</p>
+      <p>Город</p>
+    </div>
+
+    <div id="info" style="width: 35%; float: left; margin-left: 3%; margin-top: 3%">
+
+      <form name="edit" method="post" action="">
+        <p><input type="text" id="nickName"></p>
+        <p><input type="text" id="firstName"></p>
+        <p><input type="text" id="secondName"></p>
+        <p><input type="text" id="instagram"></p>
+        <p><input type="text" id="country"></p>
+        <p><input type="text" id="city"></p>
+        <p><input type="submit" id="sendEdit" value="Сохранить" action="none">
+      </form>
+    </div>
+
+  </div>
+
+  <div id="photos"></div>
+
+
+  <div id="footer">
+
+    <div class="Footer_inner"><a href="index.html"><img src="img/home.svg" width="25%"></a></div>
+    <div class="Footer_inner"><img src="img/like.svg" width="25%"></div>
+    <div class="Footer_inner"><img src="img/photos.svg" width="25%"></div>
+    <div class="Footer_inner"><img src="img/notification.svg" width="25%"></div>
+    <div class="Footer_inner"><a href="profile.html"><img src="img/profile.svg" width="25%"></a></div>
+
+  </div>
+
+</body>
+
+</html>

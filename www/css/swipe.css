@@ -1,0 +1,211 @@
+#container {
+  background: #222;
+  width: 100%;
+  /* margin: auto !important; */
+  display: block;
+  height: 95vh;
+  position: relative;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.buddy {
+  display: block;
+  /* background: #fff; */
+  /* border-radius: 10px; */
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+  /* color: #fff; */
+  /* padding: 2px; */
+  width: 100vw;
+  height: 90vh;
+  background-size: contain !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* top: 5px;
+  left: 5px; */
+  position: relative;
+
+}
+
+.avatar {
+  /* background: #222; */
+  min-width: 100vw;
+  /* max-width: 100vw; */
+  min-height: 100vh;
+  /* max-height: 100vh; */
+  display: block;
+  /* margin-top: 10px; */
+  /* margin-left: 10px; */
+  background-size: contain !important;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.avatar1 {
+  /* background: #222; */
+  min-width: 100vw;
+  /* max-width: 100vw; */
+  min-height: 100vh;
+  /* max-height: 100vh; */
+  display: block;
+  /* margin-top: 10px; */
+  /* margin-left: 10px; */
+  background-size: contain !important;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.rotate-left {
+  transform: rotate(30deg) scale(0.8);
+  transform: left;
+  transition: 0.2s;
+  margin-left: 100%;
+  /* cursor: e-resize; */
+  /* opacity: 0.1; */
+  z-index: 10;
+}
+
+.rotate-right {
+  /* transform: rotate(-30deg) scale(0.8);
+  transition: 1s;
+  opacity: 0;
+  margin-left: -40px;
+  z-index: 10; */
+  /* transform: rotate(30deg) scale(0.8); */
+  /* transform: rotate(-30deg) scale(0.8); */
+  transform: right;
+  transition: 0.2;
+  margin-left: -100%;
+  /* cursor: e-resize; */
+  /* opacity: 0.1; */
+  z-index: 10;
+}
+
+#header_swipe {
+
+  position: relative;
+
+  background-color: rgb(68, 66, 223);
+  width: 100%;
+  height: 5vh;
+  z-index: 1;
+}
+
+#back {
+  color: #fff;
+  margin: 0 auto;
+  text-align: center;
+
+  float: left;
+  width: 5%;
+  height: 100%;
+  /* background-color: burlywood; */
+}
+
+#points {
+  color: #fff;
+  margin: 0 auto;
+  text-align: center;
+
+  float: left;
+  width: 45%;
+  height: 100%;
+  /* background-color: burlywood; */
+}
+
+#strike {
+  color: #fff;
+  margin: 0 auto;
+  text-align: center;
+
+  float: left;
+  width: 50%;
+  height: 100%;
+  /* background-color: burlywood; */
+}
+
+
+
+#footer_swipe {
+  position: fixed;
+  width: 100%;
+  height: 5%;
+  padding: 1%;
+  border-top: 1px solid black;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  z-index: 1;
+}
+
+#trenderLink {
+  color: darkorchid;
+  margin: 0 auto;
+  text-align: center;
+
+  float: left;
+  width: 50%;
+  height: 100%;
+  /* background-color: burlywood; */
+}
+
+#instagramLink {
+  color: darkorchid;
+  margin: 0 auto;
+  text-align: center;
+
+  float: left;
+  width: 50%;
+  height: 100%;
+  /* background-color: burlywood; */
+}
+
+.like {
+  background-color: white;
+
+  border-radius: 5px;
+  padding: 5px 10px;
+  border: 2px solid green;
+  color: green;
+  text-transform: uppercase;
+  font-size: 15px;
+  position: absolute;
+  top: 45%;
+  right: 40%;
+  text-shadow: none;
+
+  animation: change 0.5s 1 forwards;
+}
+
+.dislike {
+  background-color: white;
+
+  border-radius: 5px;
+  padding: 5px 10px;
+  border: 2px solid red;
+  color: red;
+  text-transform: uppercase;
+  font-size: 15px;
+  position: absolute;
+  top: 45%;
+  right: 40%;
+  text-shadow: none;
+
+  animation: change 0.5s 1 forwards;
+}
+
+@keyframes change {
+  0% {
+    opacity: 1;
+    transform: scale(1.0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(2.0);
+  }
+}

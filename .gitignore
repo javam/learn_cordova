@@ -1,0 +1,7 @@
+*.rar
+*.bat
+/hooks
+/node_modules
+/platforms
+package.json
+package-lock.json
