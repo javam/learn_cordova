@@ -19,32 +19,31 @@
   <script src="cordova.js"></script>
 
   <script src="lib/jquery-3.4.1.min.js" defer></script>
-  <script src="lib/jquery.touchSwipe.min.js" defer></script>
   <script src="js/index.js" defer></script>
+  <script src="lib/jquery.touchSwipe.min.js" defer></script>
+  <script src="js/swipe.js" defer></script>
   <script src="js/pages.js" defer></script>
+  <script src="js/profile.js" defer></script>
+
+
 </head>
 
 <body>
-  <div id="index" style="display:inline-block">
-    <div id="header">
-      <h1>Trender</h1>
-    </div>
-    <br />
-    <div id="page">
-      <!-- Возможн понменять на класс, так как id page создается много раз -->
 
-      <div class="menu">
-        <div class="menuId">Подписки</div>
-        <div class="menuId">Рекомендации</div>
-        <div class="menuId">В тренде</div>
-        <div class="menuId" id="flow" onclick="flow()">Поток</div>
-      </div>
+  <div id="logo" style="display:block">
+    <h2>logo</h2>
+  </div>
 
-      <div id="photosMain"></div>
-    </div>
+  <div id="main" style="display:none">
+    <h2>main</h2>
   </div>
 
   <div id="profile" style="display:none">
+    <!-- <div id="showContent"></div> -->
+    <h2>profile</h2>
+  </div>
+
+  <div id="profile_edit" style="display:none">
     <!-- <div id="showContent"></div> -->
     <h2>profile</h2>
   </div>
@@ -54,23 +53,17 @@
     <h2>swipe</h2>
   </div>
 
-  <div id="footer">
-    <div class="Footer_inner" onclick="showPage('index')">
-      <img src="img/home.svg" width="25%" />
-    </div>
-    <div class="Footer_inner" onclick="showPage('swipe')">
-      <img src="img/like.svg" width="25%" />
-    </div>
-    <div class="Footer_inner" onclick="showPage('swipe_ex')">
-      <img src="img/photos.svg" width="25%" />
-    </div>
-    <div class="Footer_inner">
-      <img src="img/notification.svg" width="25%" />
-    </div>
-    <div class="Footer_inner" onclick="showPage('profile')">
-      <img src="img/profile.svg" width="25%" />
-    </div>
+  <div id="login" style="display:none">
+    <!-- <div id="showContent"></div> -->
+    <h2>login</h2>
   </div>
+
+  <div id="signup" style="display:none">
+    <!-- <div id="showContent"></div> -->
+    <h2>singup</h2>
+  </div>
+
+
 </body>
 
 </html>

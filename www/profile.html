@@ -1,11 +1,10 @@
- <script src="js/profile.js"></script>
-
  <div id="page">
 
    </br></br></br></br>
 
    <center>
      <h2 id="h2">Profile</h2><a href="profile_edit.html">Edit</a>
+     <a href="#" onclick="localStorage.setItem('token', ''); checkToken('');">Log out</a>
    </center>
 
    <div id="description" style="width: 50%; float: left;text-align: right; margin-top: 3%;">
@@ -27,3 +26,21 @@
  </div>
 
  <div id="photos"></div>
+
+ <div id="footer">
+   <div class="Footer_inner" onclick="showPage('main')">
+     <img src="img/home.svg" width="25%" />
+   </div>
+   <div class="Footer_inner" onclick="showPage('swipe')">
+     <img src="img/like.svg" width="25%" />
+   </div>
+   <div class="Footer_inner" onclick="showPage('login')">
+     <img src="img/photos.svg" width="25%" />
+   </div>
+   <div class="Footer_inner">
+     <img src="img/notification.svg" width="25%" />
+   </div>
+   <div class="Footer_inner" onclick="showPage('profile')">
+     <img src="img/profile.svg" width="25%" />
+   </div>
+ </div>
