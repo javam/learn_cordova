@@ -9,14 +9,14 @@ const pathToken = server + 'php/token.php';
 let token = localStorage.getItem('token');
 
 function checkToken(token) {
-    alert("check token");
+    // alert("check token");
     $.get(
         pathToken, {
             token: token,
         },
         function (data) {
             if (data == 'ok') {
-                alert('show page');
+                // alert('show page');
                 showPage('main');
             } else {
                 alert('need login, token is not found');
@@ -25,8 +25,8 @@ function checkToken(token) {
         });
 }
 
-function getPhotos(token) {
-    alert("get photo token" + token);
+function getPhotos() {
+    // alert("get photo token " + token);
     $.get(
         pathPhoto, {
             token: token,
@@ -36,10 +36,52 @@ function getPhotos(token) {
             // alert("get photos data = " + data);
             data = JSON.parse(data);
             for (let i = 0; i < data.length; i++) {
-                $('#photosMain').append($("<img class='gallery_photo' src='" + server + "photo/" + data[i][0] + "'/>"));
+                let src = server + "photo/" + data[i][0];
+                likes = data[i][2];
+                let photo_id = data[i][3];
+                let is_liked = data[i][4];
+                // alert(is_liked);
+                $('#photosMain').append($("<img class='gallery_photo' src='" + server + "photo/" + data[i][0] + "'/>").click(openPhoto(src)));
                 $('#photosMain').append($("<div class='gallery_photo_info'><div class='gallery_photo_info_name'>" + data[i][1] + "</div></div>"));
+                if (is_liked) {
+                    $('#photosMain').append($("<div class='like_make' id='" + photo_id + "'>" + likes + "</div>").click(addLike(photo_id)));
+                } else {
+                    $('#photosMain').append($("<div class='like_make' id='" + photo_id + "'>like" + "</div>").click(addLike(photo_id)));
+                }
             }
         });
+}
+
+function openPhoto(i) {
+    return function () {
+        src = i;
+        showPage('photo');
+        // alert('src = ' + i);
+    }
+}
+
+function addLike(photo_id) {
+    return function () {
+
+        // если пользователь не ставил лайк, то плюсануть лайк
+
+        $.get(pathPhoto, {
+                token: token,
+                type: 'add_like',
+                photo_id: photo_id
+            },
+            function (data) {
+                // alert(data);
+
+                document.getElementById(photo_id).innerHTML = data;
+
+                // alert("Data Loaded: " + data);
+
+            });
+
+
+        // alert('src = ' + i);
+    }
 }
 
 // var app = {
@@ -62,7 +104,7 @@ function getPhotos(token) {
 
 $(document).ready(function () {
     // app.initialize();
-    alert('On device ready \n token =' + token);
+    // alert('On device ready \n token =' + token);
     checkToken(token);
 });
 
@@ -76,11 +118,12 @@ function flow() {
             type: 'flow'
         },
         function (data) {
-            alert("flow data = " + data);
+            // alert("flow data = " + data);
             data = JSON.parse(data);
             for (let i = 0; i < data.length; i++) {
                 $('#photosMain').append($("<img class='gallery_photo' src='" + server + "photo/" + data[i][0] + "'/>"));
                 $('#photosMain').append($("<div class='gallery_photo_info'><div class='gallery_photo_info_name'>" + data[i][1] + "</div></div>"));
+                // $('.gallery_photo_info').append($("<div class='like'>" + data[i][1] + "</div>"));
             }
         });
 }

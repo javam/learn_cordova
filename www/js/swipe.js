@@ -53,7 +53,7 @@ function nextPhoto(liked) {
     liked: liked,
     vote: voting(liked)
   }, function (data) {
-    alert('swipe = ' + data);
+    // alert('swipe = ' + data);
 
     data = JSON.parse(data);
     rating = data[3];

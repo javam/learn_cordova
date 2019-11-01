@@ -1,4 +1,4 @@
-const ids = ['logo', 'main', 'profile', 'swipe', 'profile_edit', 'login', 'signup'];
+const ids = ['logo', 'main', 'profile', 'swipe', 'profile_edit', 'login', 'signup', 'photo'];
 
 function showPage(pageId) {
 
@@ -15,7 +15,7 @@ function showPage(pageId) {
 function getContent(pageId) {
     switch (pageId) {
         case 'main':
-            getPhotos(token);
+            getPhotos();
             break;
         case 'swipe':
             firstPhoto();
@@ -23,6 +23,9 @@ function getContent(pageId) {
             break;
         case 'profile':
             getUserData();
+            break;
+        case 'photo':
+            getPhoto();
             break;
 
         default:

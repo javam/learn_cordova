@@ -1,4 +1,9 @@
 <script src="js/login.js"></script>
+<!-- обратить внимание, что здесь скрипт подгружается непосредственно при вызове HTML файла, а не в index. Разобраться как правильнее   -->
+
+<div id="header_swipe">
+    <div id="back" onclick="showPage('main')">&#8592;</div>
+</div>
 
 <div id="login_body">
     <form method="post" id="login_form" onsubmit="login();">
@@ -10,4 +15,14 @@
         <button type="submit">Отправить</button>
     </form>
     <a href="#" onclick="showPage('signup');">Регистрация</a>
+</div>
+
+<hr />
+
+<script src="js/load.js"></script>
+
+<div id=load>
+    <input type="file" multiple="multiple" accept="image/*">
+    <a href="#" class="upload_files button">Загрузить файлы</a>
+    <div class="ajax-reply"></div>
 </div>
