@@ -1,4 +1,4 @@
-const pathLoad = server + 'php/load.php';
+const pathLoad = server + 'php/upload.php';
 
 let files; // переменная. будет содержать данные файлов
 
@@ -40,17 +40,12 @@ $('.upload_files').on('click', function (event) {
         contentType: false,
         // функция успешного ответа сервера
         success: function (respond, status, jqXHR) {
-
             // ОК - файлы загружены
             if (typeof respond.error === 'undefined') {
                 // выведем пути загруженных файлов в блок '.ajax-reply'
-                let files_path = respond.files;
-                let html = '';
-                $.each(files_path, function (key, val) {
-                    html += val + '<br>';
-                })
-
-                $('.ajax-reply').html(html);
+                let file_name = respond.file;
+                $('.ajax-reply').html(file_name);
+                openPhoto(file_name);
             }
             // ошибка
             else {

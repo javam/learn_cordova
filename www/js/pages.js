@@ -15,7 +15,7 @@ function showPage(pageId) {
 function getContent(pageId) {
     switch (pageId) {
         case 'main':
-            getPhotos();
+            subscriptionPhotos();
             break;
         case 'swipe':
             firstPhoto();
