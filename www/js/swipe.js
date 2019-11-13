@@ -1,7 +1,8 @@
-// var id = 1;
-const pathSwipe = server + "php/swipe.php";
-let rating;
-let points = inRow = 0;
+// превратить в let
+var rating;
+var points = inRow = 0;
+
+firstPhoto();
 
 function firstPhoto() {
 
@@ -24,30 +25,9 @@ function firstPhoto() {
       threshold: 0
     });
   });
-
-}
-
-function downSwipe(event) {
-  alert("save");
-  // nextPhoto("");
-}
-
-function leftSwipe(event) {
-  $(this).find('.status').remove();
-  $(this).append('<div class="status dislike">Dislike!</div>');
-  // alert("left");
-  nextPhoto("");
-}
-
-function rightSwipe(event) {
-  $(this).find('.status').remove();
-  $(this).append('<div class="status like">Like!</div>');
-
-  nextPhoto("like");
 }
 
 function nextPhoto(liked) {
-
   $.get(pathSwipe, {
     token: token,
     liked: liked,
@@ -65,8 +45,26 @@ function nextPhoto(liked) {
   });
 }
 
+function leftSwipe(event) {
+  $(this).find('.status').remove();
+  $(this).append('<div class="status dislike">Dislike!</div>');
+  // alert("left");
+  nextPhoto("");
+}
+
+function rightSwipe(event) {
+  $(this).find('.status').remove();
+  $(this).append('<div class="status like">Like!</div>');
+
+  nextPhoto("like");
+}
+
+function downSwipe(event) {
+  alert("save");
+  // nextPhoto("");
+}
+
 function voting(vote) {
-  //TODO: наладить правильное обновление счётчика заработанных очков
   if ((vote == "like" && rating >= 0.6) || (vote == "" && rating < 0.6) || rating == 0) {
     document.querySelector("#points").innerHTML = ++points + " points";
     document.querySelector("#strike").innerHTML = ++inRow + " in row";

@@ -28,6 +28,7 @@
  }
 
  .menuId {
+    /* разобраться со шрифтами */
     font-size: 2vh;
     float: left;
     margin-top: 0.5vh;
@@ -46,29 +47,29 @@
 
  #page {
     position: relative;
-    font-size: 2vw;
-    /* разобраться со шрифтами */
-    font-family: Gill Sans Extrabold, monospace;
     width: 100%;
+    top: 4.5vh;
+    height: 95.5vh;
  }
 
- #photosProfile {
+ /* #photosProfile {
     width: 100%;
- }
+ } */
 
  #photosMain {
-    margin-top: 8vh;
+    margin-bottom: 5vh;
+    overflow: auto;
  }
 
  .gallery_photo {
     width: 100%;
  }
 
- .gallery_photo_info {
+ /* .gallery_photo_info {
     width: 100%;
-    /* background-color: burlywood; */
+    background-color: burlywood;
     height: 4vh;
- }
+ } */
 
  .gallery_photo_info_name {
     font-size: 2vh;
@@ -95,7 +96,7 @@
  #footer {
     position: fixed;
     width: 100%;
-    height: 5%;
+    height: 5vh;
     padding: 1%;
     border-top: 1px solid black;
     bottom: 0;

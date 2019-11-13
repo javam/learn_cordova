@@ -6,23 +6,14 @@
 </div>
 
 <div id="login_body">
-    <form method="post" id="login_form" onsubmit="login();">
+    <form method="post" id="login_form">
         <fieldset>
             <legend>Вход</legend>
-            <label>E-mail<input type="email" id="email" required></label>
+            <label>E-mail<input type=" email" id="email" required></label>
             <label>Пароль<input type="password" id="pass" required></label>
         </fieldset>
-        <button type="submit">Отправить</button>
     </form>
+    <a href="#" onclick="login();">Войти</a>
+    <hr />
     <a href="#" onclick="showPage('signup');">Регистрация</a>
-</div>
-
-<hr />
-
-<script src="js/upload.js"></script>
-
-<div id=load>
-    <input type="file" accept="image/*">
-    <a href="#" class="upload_files button">Загрузить файлы</a>
-    <div class="ajax-reply"></div>
 </div>

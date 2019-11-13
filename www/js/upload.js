@@ -1,6 +1,5 @@
-const pathLoad = server + 'php/upload.php';
-
-let files; // переменная. будет содержать данные файлов
+var files;
+// переменная. будет содержать данные файлов
 
 // заполняем переменную данными, при изменении значения поля file 
 $('input[type=file]').on('change', function () {
@@ -9,6 +8,11 @@ $('input[type=file]').on('change', function () {
 
 // обработка и отправка AJAX запроса при клике на кнопку upload_files
 $('.upload_files').on('click', function (event) {
+
+    if (files[0].size > maxFileSize) {
+        alert("Файл более " + maxFileSize / 1000000 + " мб загрузить нельзя");
+        return false;
+    }
 
     event.stopPropagation(); // остановка всех текущих JS событий
     event.preventDefault(); // остановка дефолтного события для текущего элемента - клик для <a> тега
@@ -40,6 +44,7 @@ $('.upload_files').on('click', function (event) {
         contentType: false,
         // функция успешного ответа сервера
         success: function (respond, status, jqXHR) {
+            console.log(respond);
             // ОК - файлы загружены
             if (typeof respond.error === 'undefined') {
                 // выведем пути загруженных файлов в блок '.ajax-reply'
@@ -50,6 +55,7 @@ $('.upload_files').on('click', function (event) {
             // ошибка
             else {
                 console.log('ОШИБКА: ' + respond.error);
+                $('.ajax-reply').html('ОШИБКА: ' + respond.error);
             }
         },
         // функция ошибки ответа сервера

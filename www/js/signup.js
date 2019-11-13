@@ -16,6 +16,7 @@ function signup() {
                 alert("signup success! token = " + data);
                 if (data) {
                     localStorage.setItem('token', data);
+                    token = data;
                     showPage('profile'); // Поменять на profile_edit
                 }
             });

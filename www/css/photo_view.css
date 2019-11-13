@@ -1,0 +1,102 @@
+#header_photo_view {
+    position: relative;
+
+    background-color: rgb(61, 168, 223);
+    width: 100%;
+    height: 5vh;
+    z-index: 1;
+}
+
+#container {
+    background: #222;
+    width: 100%;
+    /* margin: auto !important; */
+    display: block;
+    height: 95vh;
+    position: relative;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.photo {
+    display: block;
+    /* background: #fff; */
+    /* border-radius: 10px; */
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+    /* color: #fff; */
+    /* padding: 2px; */
+    width: 100vw;
+    height: 83vh;
+    background-size: contain !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* top: 5px;
+    left: 5px; */
+    position: relative;
+}
+
+#footer_photo_view {
+    position: fixed;
+    width: 100%;
+    height: 12vh;
+    /* padding: 1%; */
+    border-top: 1px solid black;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    z-index: 1;
+}
+
+.glagol {
+    width: 100%;
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    justify-content: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+}
+
+.glagol1 {
+    width: 100%;
+    border: 1px solid grey;
+    /* border-radius: 10px; */
+    /* background: RGB(229, 224, 218); */
+}
+
+.glag {
+    border: 1px solid grey;
+    /* border-radius: 10px; */
+    text-align: center;
+    font-size: 21px;
+    margin: 2px;
+}
+
+.glago {
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    align-items: center;
+}
+
+.gla {
+    width: 50%;
+}
+
+.gl {
+    border: 1px solid gray;
+    /* border-radius: 10px; */
+    text-align: center;
+    font-size: 19px;
+    margin: 2px;
+}
