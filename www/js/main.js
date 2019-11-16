@@ -4,25 +4,16 @@ page_type_global = 'subscribes';
 loadPhotos(page_type_global, 0);
 
 function loadPhotos(page_type, page_num) {
-    // console.log("page_type_global = " + page_type_global + " page_type = " + page_type);
+    console.log(" page_num = " + page_num);
     page_num_global = page_num;
-
-    if (document.querySelector(".menuIdChoosed")) {
-        document.querySelector(".menuIdChoosed").classList.remove("menuIdChoosed");
-        document.getElementById(page_type).classList.add("menuIdChoosed");
-    } else {
-        console.log(page_type);
-
-        setTimeout(
-            () => document.getElementById(page_type).classList.add("menuIdChoosed"),
-            100
-        );
-        // document.getElementById(page_type).classList.add('menuIdChoosed');
-    }
     page_type_global = page_type;
+
+    document.querySelector(".menuIdChoosed").classList.remove("menuIdChoosed");
+    document.getElementById(page_type).classList.add("menuIdChoosed");
+
     if (page_num == 0) $("#photosMain").empty();
 
-    $.get(
+    $.post(
         pathPhoto, {
             token: token,
             type: page_type,
@@ -30,14 +21,19 @@ function loadPhotos(page_type, page_num) {
         },
         function (data) {
             // console.log("get photos data = " + data);
-            showBlockPhoto(data);
+            if (data) {
+                showBlockPhoto(data);
+            } else {
+                $("#photosMain").append("<br/><br/><br/><br/><br/><center><p> Подписок нет <br/> Подпишитесь на кого-нибудь </p></center>");
+            }
+
         }
     );
 }
 
 function showBlockPhoto(data) {
     data = JSON.parse(data);
-    // console.log("JSON.parse = " + data);
+    console.log("showBlockPhoto = " + data);
     if (data == null) return;
 
     for (let i = 0; i < data.length; i++) {
@@ -82,29 +78,21 @@ function openPhoto(photo_id_func) {
 
     return function () {
         // alert("INDEX = " + photo_id);
+        showPage("photo_view"); // возможно переместить ниже запроса фото
 
-
-        $.get(pathPhoto, {
+        $.post(pathPhoto, {
             type: "add_open",
             photo_id: photo_id_func
         });
         photo_id = photo_id_func;
-        // showPage("photo_view");
-        // document.getElementById('main').style.visibility = "hidden";
-        document.getElementById('main').style.display = "none";
-        document.getElementById('photo_view').style.display = "block";
-        $('#photo_view').load('photo_view.html');
-    };
-}
 
-function closePhoto() {
-    document.getElementById('photo_view').style.display = "none";
-    document.getElementById('main').style.display = "block";
+        showPage("photo_view");
+    };
 }
 
 function addLike(photo_id) {
     return function () {
-        $.get(
+        $.post(
             pathPhoto, {
                 token: token,
                 type: "add_like",

@@ -6,7 +6,7 @@ function signup() {
 
 
     if (email != '' && pass != '' && pass === pass2) {
-        $.get(
+        $.post(
             pathSignup, {
                 email: email,
                 pass: pass,
@@ -17,6 +17,7 @@ function signup() {
                 if (data) {
                     localStorage.setItem('token', data);
                     token = data;
+                    // location.reload();
                     showPage('profile'); // Поменять на profile_edit
                 }
             });

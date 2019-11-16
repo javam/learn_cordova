@@ -2,7 +2,7 @@ getPhoto();
 
 function getPhoto() {
     // alert(photo_id);
-    $.get(pathPhoto, {
+    $.post(pathPhoto, {
         // token: token,
         type: 'view_photo',
         photo_id: photo_id
@@ -25,6 +25,12 @@ function getPhoto() {
         //   threshold: 0
         // });
     });
+}
+
+function closePhoto() {
+    document.getElementById('photo_view').style.display = "none";
+    document.getElementById('main').style.display = "block";
+    cleanCanvas();
 }
 
 function cleanCanvas() {

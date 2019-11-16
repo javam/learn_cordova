@@ -13,7 +13,7 @@ function getUserData() {
 
   console.log(pathProfilePhp);
 
-  $.get(
+  $.post(
     pathProfilePhp, {
       token: token
     },

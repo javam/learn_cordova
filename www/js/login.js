@@ -1,5 +1,3 @@
-const pathLogin = server + 'php/login.php';
-
 function login() {
     let email = document.getElementById("email").value;
     let pass = document.getElementById("pass").value;
@@ -7,7 +5,7 @@ function login() {
     let error_password = "Пароль неверный";
     let error_user_not_found = "Пользователь с таким email не найден";
 
-    $.get(
+    $.post(
         pathLogin, {
             email: email,
             pass: pass
@@ -23,6 +21,7 @@ function login() {
             } else {
                 // alert("token = " + data);
                 localStorage.setItem('token', data);
+                location.reload();
                 showPage('main');
             }
         }
