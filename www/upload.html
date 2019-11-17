@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="css/upload.css" />
+
 <div id="header_swipe">
     <div id="back" onclick="showPage('main')">&#8592;</div>
 </div>
@@ -5,7 +7,21 @@
 <script src="js/upload.js"></script>
 
 <div id=load>
-    <input type="file" accept="image/*">
+    <input type="file" accept=".png, .jpg, .jpeg"> <!-- изменил с image/* -->
     <a href="#" class="upload_files button">Загрузить файлы</a>
     <div class="ajax-reply"></div>
 </div>
+
+<div id="container">
+    <div class="photo"></div>
+</div>
+
+<form id="addPhotoParams">
+    <fieldset>
+        <legend>Параметры фото</legend>
+        <label>Добавить просмотры<input type="number" id="views" width="" height=""></label>
+        <label>Тэги, через запятую<input type="text" id="tags" width="" height=""></label>
+    </fieldset>
+    <div id="buttonAddPhotoParams">Загрузить</div>
+    <div id="buttonCancelAddPhoto">Отмена</div>
+</form>

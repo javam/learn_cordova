@@ -31,34 +31,6 @@
 
 }
 
-.avatar {
-  /* background: #222; */
-  min-width: 100vw;
-  /* max-width: 100vw; */
-  min-height: 100vh;
-  /* max-height: 100vh; */
-  display: block;
-  /* margin-top: 10px; */
-  /* margin-left: 10px; */
-  background-size: contain !important;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.avatar1 {
-  /* background: #222; */
-  min-width: 100vw;
-  /* max-width: 100vw; */
-  min-height: 100vh;
-  /* max-height: 100vh; */
-  display: block;
-  /* margin-top: 10px; */
-  /* margin-left: 10px; */
-  background-size: contain !important;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
 .rotate-left {
   transform: rotate(30deg) scale(0.8);
   transform: left;

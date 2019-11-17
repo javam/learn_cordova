@@ -8,7 +8,7 @@ const pathLoad = server + "php/upload.php";
 const pathProfilePhp = server + "php/profile.php";
 const pathSwipe = server + "php/swipe.php";
 
-const maxFileSize = 10000000;
+const maxFileSize = 10 * 1024 * 1024;
 
 let token = localStorage.getItem("token");
 
